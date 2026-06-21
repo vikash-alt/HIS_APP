@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: PLAN_API
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/vikashdb
+    username: root
+    password: vikash@123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
