@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import vikash.DC_API.binding.PlanDTO;
 import vikash.DC_API.entity.PlanEntity;
 import java.io.Serializable;
 import java.util.List;
@@ -12,8 +13,8 @@ import java.util.Optional;
 @Repository
 public interface PlanRepository extends JpaRepository<PlanEntity, Serializable> {
 
-    @Query("SELECT e.planName from PlanEntity e")
-    List<String> getAllPlanNames();
+    @Query("SELECT new vikash.DC_API.binding.PlanDTO(e.planName, e.planId) from PlanEntity e")
+    List<PlanDTO> getAllPlanNames();
 
     @Query(value = """
     SELECT a.plan_name

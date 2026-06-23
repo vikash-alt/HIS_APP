@@ -10,7 +10,7 @@ public class DcEducationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer eduId;
-    private Long CaseNum;
+    private Long caseNum;
     private String highestEdu;
     private Integer graduationYear;
 }
