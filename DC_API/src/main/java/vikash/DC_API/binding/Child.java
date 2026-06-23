@@ -5,8 +5,7 @@ import java.time.LocalDate;
 
 @Data
 public class Child {
-    private Integer childId;
-    private Long caseNum;
-    private LocalDate childDOB;
+    private String childName;
+    private Integer childAge;
     private Long childSSN;
 }

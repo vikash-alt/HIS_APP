@@ -1,10 +1,10 @@
 package vikash.DC_API.binding;
 
 import lombok.Data;
+import java.util.List;
 
 @Data
-public class Income {
+public class ChildRequest {
     private Long caseNum;
-    private Double empIncome;
-    private Double propertyIncome;
+    private List<Child> children;
 }

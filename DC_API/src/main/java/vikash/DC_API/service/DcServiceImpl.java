@@ -49,7 +49,7 @@ public class DcServiceImpl implements DcService {
             DcCaseEntity savedCase = dcCaseRepo.save(caseEntity);
             return savedCase.getCaseNum();
         }
-        return 0L;
+        return null;
     }
 
     @Override
@@ -69,7 +69,9 @@ public class DcServiceImpl implements DcService {
     }
 
     @Override
-    public Long saveChildrenData(List<Child> children) {
+    public Long saveChildrenData(ChildRequest request) {
+        List<Child> children = request.getChildren();
+        Long caseNum = request.getCaseNum();
         if (children == null || children.isEmpty()) {
             return null;
         }
@@ -77,10 +79,11 @@ public class DcServiceImpl implements DcService {
         for (Child child: children) {
             DcChildrenEntity childrenEntity = new DcChildrenEntity();
             BeanUtils.copyProperties(child, childrenEntity);
+            childrenEntity.setCaseNum(caseNum);
             entities.add(childrenEntity);
         }
         dcChildrenRepo.saveAll(entities);
-        return children.get(0).getCaseNum();
+        return caseNum;
     }
 
     @Override
